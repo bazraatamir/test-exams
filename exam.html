@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Англи Хэлний Түвшин Тогтоох Шалгалт</title>
+    <link rel="stylesheet" href="./exam.css">
+ 
+</head>
+<body>
+
+<div class="header">
+    <h1 id="testTitle">Англи Хэлний Түвшин Тогтоох Шалгалт</h1>
+    <p id="userInfo"></p>
+</div>
+
+<form id="quizForm"></form>
+
+<button id="submitBtn">Шалгалтыг Дуусгах & Хариуг Шалгах</button>
+
+<div id="resultModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <div id="modalResultsContent">
+            </div>
+    </div>
+</div>
+
+<script>
+  // 1. JSON өгөгдлийг хувьсагчид хадгалах
+const modal = document.getElementById('resultModal');
+const span = document.getElementsByClassName("close-btn")[0];
+const modalResultsContent = document.getElementById('modalResultsContent');
+const quizForm = document.getElementById('quizForm');
+const resultsDiv = document.getElementById('results');
+const submitBtn = document.getElementById('submitBtn');
+
+let examData = null;
+let totalQuestions = 0;
+let isExamFinished = false; 
+
+const EXAM_STATUS_KEY = 'exam_completed_status';
+
+// Шалгалтыг эхлэхээс өмнө өгсөн эсэхийг шалгах
+if (localStorage.getItem(EXAM_STATUS_KEY) === 'true') {
+    lockExam("Та энэ шалгалтыг өгсөн байна. Дахин өгөх боломжгүй.");
+} else {
+    // Өгөөгүй бол JSON-г уншина
+    fetch('./public/exam.json')
+        .then(response => response.json())
+        .then(data => {
+            examData = data;
+            document.getElementById('testTitle').textContent = examData.test_title;
+            loadQuiz();
+        })
+        .catch(error => console.error('JSON файлыг ачаалж чадсангүй:', error));
+}
+
+// 2. Асуултуудыг ачаалах (Өөрчлөлтгүй)
+function loadQuiz() {
+    const lastName = localStorage.getItem('userLastName');
+    const firstName = localStorage.getItem('userFirstName');
+    
+    if (lastName && firstName) {
+        document.getElementById('userInfo').textContent = `Шалгалт өгч буй: ${lastName} овогтой ${firstName} | Түвшин: ${examData.level}`;
+    } else {
+         document.getElementById('userInfo').textContent = `Шалгалт өгч буй: (Нэр, Овог оруулаагүй)`;
+    }
+
+    examData.sections.forEach(section => {
+        const sectionDiv = document.createElement('div');
+        sectionDiv.className = 'section';
+        sectionDiv.innerHTML = `<h2>${section.section_name} (${section.number_of_questions} Асуулт)</h2>`;
+
+        if (section.reading_passage) {
+            const passageDiv = document.createElement('div');
+            passageDiv.className = 'reading-passage';
+            passageDiv.innerHTML = `<h3>Унших Хэсэг:</h3><p>${section.reading_passage}</p>`;
+            sectionDiv.appendChild(passageDiv);
+        }
+
+        section.questions.forEach(q => {
+            totalQuestions++;
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question-item';
+            
+            let questionHTML = `<div class="question-text">${q.id}. ${q.question}</div><div class="options">`;
+            
+            const optionsKeys = Object.keys(q.options);
+            optionsKeys.forEach(key => {
+                const optionValue = q.options[key];
+                questionHTML += `
+                    <label>
+                        <input type="radio" name="question_${q.id}" value="${key}" required> 
+                        ${key}) ${optionValue}
+                    </label>
+                `;
+            });
+
+            questionHTML += '</div>';
+            questionDiv.innerHTML = questionHTML;
+            sectionDiv.appendChild(questionDiv);
+        });
+
+        quizForm.appendChild(sectionDiv);
+    });
+}
+
+// 3. Шалгалтыг шалгах функц (isAutoSubmit параметр нэмэгдсэн)
+function checkQuiz(event, isAutoSubmit = false) {
+    if (event && event.preventDefault) event.preventDefault();
+
+    if (isExamFinished) return;
+    
+    isExamFinished = true;
+    localStorage.setItem(EXAM_STATUS_KEY, 'true');
+
+    let correctCount = 0;
+    let incorrectCount = 0;
+    let unansweredCount = 0;
+    const form = document.getElementById('quizForm');
+
+    examData.sections.forEach(section => {
+        section.questions.forEach(q => {
+            const questionName = `question_${q.id}`;
+            const userAnswerElement = form.querySelector(`input[name="${questionName}"]:checked`);
+            
+            if (userAnswerElement) {
+                if (userAnswerElement.value === q.correct_answer) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+            } else {
+                unansweredCount++;
+            }
+        });
+    });
+
+    const percentage = totalQuestions > 0 ? ((correctCount / totalQuestions) * 100).toFixed(2) : 0;
+    
+    // Автомат дуусгалт хийгдсэн үед харуулах анхааруулга
+    let warningMessage = '';
+    if (isAutoSubmit) {
+        // Минималист загварт тохируулан, тод хар өнгөөр анхааруулна.
+        warningMessage = '<div style="background:#f4f4f4; padding:15px; border-left:3px solid #000; margin-bottom: 20px;"><strong>⚠️ АВТОМАТ ДУУСГАЛТ:</strong> Та шалгалтын үеэр цонх/таб сольсон тул шалгалт автоматаар дуусгагдаж, үр дүн тань гарлаа.</div>';
+    }
+
+    modalResultsContent.innerHTML = `
+        ${warningMessage}
+        <h2>Шалгалтын Эцсийн Үр Дүн</h2>
+        <p><strong>Овог, Нэр:</strong> ${localStorage.getItem('userLastName') || ''} ${localStorage.getItem('userFirstName') || ''}</p>
+        <p>Нийт асуулт: <strong>${totalQuestions}</strong></p>
+        <hr>
+        <p style="color: #000;"> Зөв хариулсан: <strong>${correctCount}</strong></p>
+        <p style="color: #000;"> Буруу хариулсан: <strong>${incorrectCount}</strong></p>
+        <p style="color: #555;"> Хариулаагүй: <strong>${unansweredCount}</strong></p>
+        <hr>
+        <h3> Нийт Оноо: <strong>${percentage}%</strong></h3>
+    `;
+    
+    modal.style.display = "block";
+    
+    disableAllInputs();
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Шалгалт Дууссан';
+}
+
+// Шалгалтыг түгжих функц (Өөрчлөлтгүй)
+function lockExam(message) {
+    if(quizForm) quizForm.innerHTML = `<div style="text-align:center; padding:50px;"><h3>${message}</h3></div>`;
+    if(submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Шалгалт хаагдсан';
+    }
+    if(document.getElementById('testTitle')) document.getElementById('testTitle').textContent = "Шалгалт";
+}
+
+// Бүх формыг идэвхгүй болгох (Өөрчлөлтгүй)
+function disableAllInputs() {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => input.disabled = true);
+}
+
+// Modals (Өөрчлөлтгүй)
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// 4. TAB СОЛИХ ҮЕД ШАЛГАЛТЫГ ШУУД ДУУСГАХ (alert-ийг устгасан)
+document.addEventListener("visibilitychange", function() {
+    if (document.hidden && !isExamFinished && examData !== null) {
+        // checkQuiz-ийг дуудахдаа isAutoSubmit=true гэж дамжуулна
+        checkQuiz(null, true);
+    }
+});
+
+// Event Listener (checkQuiz-ийг дуудахдаа isAutoSubmit=false гэж дамжуулна)
+submitBtn.addEventListener('click', (e) => checkQuiz(e, false));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <title>Шалгалтын Хуудас - Нэр Овог</title>
+    <style>
+        /* Энгийн загвар */
+       body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #fafafa; /* Цэвэр цагаан биш, маш бүдэг саарал */
+  color: #111;
+}
+
+.container {
+  background: white;
+  padding: 40px; /* Доторх зайг нэмж илүү цэлгэр болгосон */
+  border-radius: 8px;
+  /* Сүүдрийн оронд маш бүдэг хүрээ болон сүүдэр ашиглав */
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  width: 320px;
+}
+
+h2 {
+  text-align: center;
+  color: #000; /* Тас хар */
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.85em; /* Жижигрүүлж, цэвэрхэн болгосон */
+  text-transform: uppercase; /* Том үсгээр бичих нь моод */
+  letter-spacing: 0.5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 25px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  background-color: #fafafa;
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background: #fff;
+  border-color: #000; /* Идэвхжсэн үед хар хүрээтэй */
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #000; /* Хар товч */
+  color: white;
+  border: 1px solid #000;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #333; /* Дээр нь очиход саарал */
+  transform: translateY(-1px);
+}
+
+#message {
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+  font-size: 0.9em;
+  padding: 10px;
+  background: #f4f4f4; /* Ногоон биш, саарал дэвсгэртэй хар бичиг */
+  border-left: 3px solid #000;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Шалгалт Эхлүүлэх</h2>
+    <form id="userInfoForm">
+        <label for="lastName">Овог:</label>
+        <input type="text" id="lastName" required>
+
+        <label for="firstName">Нэр:</label>
+        <input type="text" id="firstName" required>
+
+        <button type="submit">Мэдээллийг Хадгалах & Шалгалт Эхлэх</button>
+    </form>
+
+    <p id="message"></p>
+    
+</div>
+
+<script src="./app.js">
+   
+</script>
+
+</body>
+</html>

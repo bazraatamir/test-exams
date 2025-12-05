@@ -45,7 +45,7 @@ if (localStorage.getItem(EXAM_STATUS_KEY) === 'true') {
     lockExam("Та энэ шалгалтыг өгсөн байна. Дахин өгөх боломжгүй.");
 } else {
     // Өгөөгүй бол JSON-г уншина
-    fetch('./public/exam.json')
+    fetch('./exam/exam.json')
         .then(response => response.json())
         .then(data => {
             examData = data;
@@ -194,13 +194,21 @@ window.onclick = function(event) {
 }
 
 // 4. TAB СОЛИХ ҮЕД ШАЛГАЛТЫГ ШУУД ДУУСГАХ (alert-ийг устгасан)
-document.addEventListener("visibilitychange", function() {
-    if (document.hidden && !isExamFinished && examData !== null) {
-        // checkQuiz-ийг дуудахдаа isAutoSubmit=true гэж дамжуулна
-        checkQuiz(null, true);
-    }
-});
+// Хуудас дор хаяж нэг удаа идэвхтэй байсан эсэхийг тэмдэглэх хувьсагч.
+let hasBeenActive = false; 
+ // Таны шалгалтын төлөвийг илэрхийлэх хувьсагч.
 
+document.addEventListener("visibilitychange", function() {
+
+    if (document.hidden && !isExamFinished && examData !== null) {
+
+        // checkQuiz-ийг дуудахдаа isAutoSubmit=true гэж дамжуулна
+
+        checkQuiz(null, true);
+
+    }
+
+});
 // Event Listener (checkQuiz-ийг дуудахдаа isAutoSubmit=false гэж дамжуулна)
 submitBtn.addEventListener('click', (e) => checkQuiz(e, false));
 </script>

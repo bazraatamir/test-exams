@@ -1,677 +1,673 @@
 {
-  "test_name": "Python Beginner Skill Test",
+  "test_name": "Python Beginner Skill Test: Data Types and String Methods",
   "level": "Beginner",
-  "topic": "if, loop, function, list, tuple, set",
+  "topic": "String, List, Tuple, Set, Dictionary Basics, Methods",
   "sections": [
     {
-      "section_name": "Theoretical Knowledge (Онолын мэдлэг)",
+      "section_name": "Theoretical Knowledge (Онолын мэдлэг) - String, List, Tuple, Set Basics",
       "number_of_questions": 20,
       "questions": [
         {
           "id": 1,
-          "question": "Python-д нөхцөл шалгах үндсэн түлхүүр үг юу вэ?",
+          "question": "Python-д string ямар төрлийн өгөгдөл вэ?",
           "options": {
-            "a": "check",
-            "b": "case",
-            "c": "if",
-            "d": "while"
-          },
-          "correct_answer": "c"
-        },
-        {
-          "id": 2,
-          "question": "Дарааллын элементүүдийг давтан гүйцэтгэхэд ихэвчлэн ямар 'loop' ашигладаг вэ?",
-          "options": {
-            "a": "do-while",
-            "b": "for",
-            "c": "repeat",
-            "d": "loop-until"
+            "a": "Mutable",
+            "b": "Immutable",
+            "c": "Numeric",
+            "d": "Iterable биш"
           },
           "correct_answer": "b"
         },
         {
-          "id": 3,
-          "question": "Python-д функцийг тодорхойлоход ямар түлхүүр үг хэрэглэдэг вэ?",
+          "id": 2,
+          "question": "Доорх аргуудаас аль нь string-ийн method биш вэ?",
           "options": {
-            "a": "define",
-            "b": "func",
-            "c": "def",
-            "d": "function"
+            "a": "upper()",
+            "b": "replace()",
+            "c": "append()",
+            "d": "strip()"
+          },
+          "correct_answer": "c"
+        },
+        {
+          "id": 3,
+          "question": "\"hello\".upper() ямар утга буцаах вэ?",
+          "options": {
+            "a": "hello",
+            "b": "Hello",
+            "c": "HELLO",
+            "d": "error"
           },
           "correct_answer": "c"
         },
         {
           "id": 4,
-          "question": "Дарааллын өгөгдөл хадгалах, өөрчлөх боломжтой (mutable) төрөл аль нь вэ?",
+          "question": "Python list нь...",
           "options": {
-            "a": "tuple",
-            "b": "set",
-            "c": "list",
-            "d": "dictionary"
+            "a": "Ordered, mutable",
+            "b": "Ordered, immutable",
+            "c": "Unordered, mutable",
+            "d": "Unordered, immutable"
           },
-          "correct_answer": "c"
+          "correct_answer": "a"
         },
         {
           "id": 5,
-          "question": "Дарааллын өгөгдөл хадгалах, өөрчлөх боломжгүй (immutable) төрөл аль нь вэ?",
+          "question": "Set-ийн давтагдсан утгууд...",
           "options": {
-            "a": "list",
-            "b": "set",
-            "c": "array",
-            "d": "tuple"
+            "a": "хадгалагддаг",
+            "b": "устгагддаг",
+            "c": "алдаа гаргадаг",
+            "d": "string бол хадгалагдана"
           },
-          "correct_answer": "d"
+          "correct_answer": "b"
         },
         {
           "id": 6,
-          "question": "Зөвхөн давхардахгүй (unique) элементүүдийг хадгалах өгөгдлийн бүтэц юу вэ?",
+          "question": "Tuple ямар шинжтэй вэ?",
           "options": {
-            "a": "list",
-            "b": "tuple",
-            "c": "set",
-            "d": "string"
+            "a": "Mutable",
+            "b": "Хэмжээ нь өөрчлөгдөнө",
+            "c": "Immutable",
+            "d": "List-тэй адил"
           },
           "correct_answer": "c"
         },
         {
           "id": 7,
-          "question": "Хэрэв 'if' нөхцөл биелэхгүй бол аль түлхүүр үгний доорх кодыг гүйцэтгэх вэ?",
+          "question": "Dictionary key ямар төрлийн объект байж болно?",
           "options": {
-            "a": "then",
-            "b": "elif",
-            "c": "else",
-            "d": "finally"
+            "a": "List",
+            "b": "Set",
+            "c": "Mutable object",
+            "d": "Immutable object"
           },
-          "correct_answer": "c"
+          "correct_answer": "d"
         },
         {
           "id": 8,
-          "question": "Функцээс утга буцаахдаа ямар түлхүүр үг ашигладаг вэ?",
+          "question": "len(\"Hello\") = ?",
           "options": {
-            "a": "send",
-            "b": "yield",
-            "c": "return",
-            "d": "output"
-          },
-          "correct_answer": "c"
-        },
-        {
-          "id": 9,
-          "question": "List-ийн элементэд хандахдаа индексийг хэдээс эхлүүлдэг вэ?",
-          "options": {
-            "a": "1",
-            "b": "0",
-            "c": "-1",
-            "d": "List-ийн хэмжээнээс"
+            "a": "4",
+            "b": "5",
+            "c": "6",
+            "d": "Error"
           },
           "correct_answer": "b"
         },
         {
-          "id": 10,
-          "question": "Tuple-ийн элементүүдийг ямар хаалтанд бичдэг вэ?",
+          "id": 9,
+          "question": "List-т элемент нэмэх зөв арга?",
           "options": {
-            "a": "[] (дөрвөлжин)",
-            "b": "{} (буржгар)",
-            "c": "() (дугуй)",
-            "d": "<> (өнцөгт)"
+            "a": "list.add()",
+            "b": "list.push()",
+            "c": "list.append()",
+            "d": "list.append"
           },
           "correct_answer": "c"
+        },
+        {
+          "id": 10,
+          "question": "Set-ийн элементийг индексээр авах боломжтой юу?",
+          "options": {
+            "a": "Тийм",
+            "b": "Үгүй"
+          },
+          "correct_answer": "b"
         },
         {
           "id": 11,
-          "question": "Set-ийн элементүүдийг ямар хаалтанд бичдэг вэ?",
+          "question": "\"Python\".find(\"t\") → ?",
           "options": {
-            "a": "() (дугуй)",
-            "b": "[] (дөрвөлжин)",
-            "c": "{} (буржгар)",
-            "d": "// (ташуу)"
+            "a": "2",
+            "b": "3",
+            "c": "t",
+            "d": "-1"
           },
-          "correct_answer": "c"
+          "correct_answer": "b"
         },
         {
           "id": 12,
-          "question": "Tuple нь List-ээс ямар давуу талтай вэ?",
+          "question": "list(\"abc\") → ?",
           "options": {
-            "a": "Илүү хурдан ажилладаг",
-            "b": "Өөрчлөх боломжтой",
-            "c": "Илүү олон төрлийн өгөгдөл хадгалдаг",
-            "d": "Давхардсан утгатай байж болохгүй"
+            "a": "[\"abc\"]",
+            "b": "[\"a\",\"b\",\"c\"]",
+            "c": "(\"a\",\"b\",\"c\")",
+            "d": "error"
           },
-          "correct_answer": "a"
+          "correct_answer": "b"
         },
         {
           "id": 13,
-          "question": "For loop-ийг тодорхой тооны давталт хийхэд ашигладаг функц юу вэ?",
+          "question": "\"a,b,c\".split(\",\") → ?",
           "options": {
-            "a": "iterate()",
-            "b": "count()",
-            "c": "sequence()",
-            "d": "range()"
+            "a": "[\"a,b,c\"]",
+            "b": "[\"a\",\"b\",\"c\"]",
+            "c": "[\"abc\"]",
+            "d": "error"
           },
-          "correct_answer": "d"
+          "correct_answer": "b"
         },
         {
           "id": 14,
-          "question": "List-д шинэ элемент нэмэхэд хэрэглэгддэг функц (method) аль нь вэ?",
+          "question": "my_dict[\"x\"] хэрэв \"x\" байхгүй бол?",
           "options": {
-            "a": "insert()",
-            "b": "add()",
-            "c": "push()",
-            "d": "create()"
+            "a": "None",
+            "b": "0",
+            "c": "KeyError",
+            "d": "False"
+          },
+          "correct_answer": "c"
+        },
+        {
+          "id": 15,
+          "question": "set([1,2,2,3]) → ?",
+          "options": {
+            "a": "[1,2,2,3]",
+            "b": "{1,2,3}",
+            "c": "{1,1,2,3}",
+            "d": "Error"
+          },
+          "correct_answer": "b"
+        },
+        {
+          "id": 16,
+          "question": "\"hello\".replace(\"l\",\"x\") → ?",
+          "options": {
+            "a": "hexxo",
+            "b": "hexo",
+            "c": "hexxxo",
+            "d": "Error"
           },
           "correct_answer": "a"
         },
         {
-          "id": 15,
-          "question": "Set-д шинэ элемент нэмэхэд хэрэглэгддэг функц (method) аль нь вэ?",
-          "options": {
-            "a": "append()",
-            "b": "insert()",
-            "c": "add()",
-            "d": "put()"
-          },
-          "correct_answer": "c"
-        },
-        {
-          "id": 16,
-          "question": "List-ийн хамгийн сүүлийн элементийг устгаад, буцаадаг функц аль нь вэ?",
-          "options": {
-            "a": "remove()",
-            "b": "delete()",
-            "c": "pop()",
-            "d": "clear()"
-          },
-          "correct_answer": "c"
-        },
-        {
           "id": 17,
-          "question": "Кодны гүйцэтгэлийг loop-ийн дараагийн давталт руу шууд үсэргэдэг түлхүүр үг юу вэ?",
+          "question": "List-ийн аль method элементийг устгана?",
           "options": {
-            "a": "break",
-            "b": "stop",
-            "c": "exit",
-            "d": "continue"
+            "a": "pop()",
+            "b": "append()",
+            "c": "join()",
+            "d": "add()"
           },
-          "correct_answer": "d"
+          "correct_answer": "a"
         },
         {
           "id": 18,
-          "question": "Хэрэв нэг функц олон утга буцаах шаардлагатай бол Python ямар өгөгдлийн төрлөөр буцаадаг вэ?",
+          "question": "Dictionary-ийн value давтагдаж болох уу?",
           "options": {
-            "a": "List",
-            "b": "Dictionary",
-            "c": "Tuple",
-            "d": "Set"
+            "a": "Болно",
+            "b": "Болохгүй"
           },
-          "correct_answer": "c"
+          "correct_answer": "a"
         },
         {
           "id": 19,
-          "question": "Дараах List-ийн аль нь зөв бичигдсэн бэ?  a) `[1, 2, 3]`  b) `(1, 2, 3)`  c) `{1, 2, 3}`  d) `\"1, 2, 3\"`",
+          "question": "Set-д элемент нэмэх арга",
           "options": {
-            "a": "a",
-            "b": "b",
-            "c": "c",
-            "d": "d"
+            "a": "add()",
+            "b": "append()",
+            "c": "insert()",
+            "d": "push()"
           },
           "correct_answer": "a"
         },
         {
           "id": 20,
-          "question": "Tuple-ийн урт (length)-ийг олох функц юу вэ?",
+          "question": "String slicing: \"abcdef\"[2:5] → ?",
           "options": {
-            "a": "size()",
-            "b": "length()",
-            "c": "count()",
-            "d": "len()"
+            "a": "\"cd\"",
+            "b": "\"cde\"",
+            "c": "\"bcd\"",
+            "d": "\"def\""
           },
-          "correct_answer": "d"
+          "correct_answer": "b"
         }
       ]
     },
     {
-      "section_name": "Problem Solving and Coding (Асуудал шийдвэрлэх ба Код бичих)",
+      "section_name": "Problem Solving and Coding (Асуудал шийдвэрлэх ба Код бичих) - Application of Data Type Methods",
       "number_of_questions": 40,
       "questions": [
         {
           "id": 21,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nx = 10\ny = 5\nif x > y:\n    print('A')\nelif x == y:\n    print('B')\nelse:\n    print('C')\n```",
+          "question": "“banana” стрингэд хэдэн ширхэг “a” байна?",
           "options": {
-            "a": "B",
-            "b": "A",
-            "c": "C",
-            "d": "A B C"
+            "a": "1",
+            "b": "2",
+            "c": "3",
+            "d": "4"
           },
-          "correct_answer": "b"
+          "correct_answer": "c"
         },
         {
           "id": 22,
-          "question": "Дараах loop хэдэн удаа давтах вэ?\n```python\nfor i in range(5):\n    # ...\n```",
+          "question": "“python” стрингийн эхний ба сүүлийн үсэг юу вэ?",
           "options": {
-            "a": "6",
-            "b": "5",
-            "c": "4",
-            "d": "0"
+            "a": "p, n",
+            "b": "p, o",
+            "c": "y, n",
+            "d": "t, h"
           },
-          "correct_answer": "b"
+          "correct_answer": "a"
         },
         {
           "id": 23,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\ncount = 0\nwhile count < 3:\n    count += 1\nprint(count)\n```",
+          "question": "“hello” стрингийн урвуу хувилбар аль вэ?",
           "options": {
-            "a": "2",
-            "b": "0",
-            "c": "3",
-            "d": "Infinite loop"
+            "a": "hello",
+            "b": "ohell",
+            "c": "olleh",
+            "d": "helol"
           },
           "correct_answer": "c"
         },
         {
           "id": 24,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_list = [1, 5, 3]\nmy_list.append(8)\nprint(my_list[3])\n```",
+          "question": "“HeLLo” үгийг том–жижигийг соливол аль болох вэ?",
           "options": {
-            "a": "5",
-            "b": "8",
-            "c": "IndexError",
-            "d": "3"
-          },
-          "correct_answer": "b"
-        },
-        {
-          "id": 25,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_tuple = (10, 20)\nprint(my_tuple[0])\n```",
-          "options": {
-            "a": "Error",
-            "b": "20",
-            "c": "10",
-            "d": "(10, 20)"
+            "a": "HELLO",
+            "b": "hello",
+            "c": "hEllO",
+            "d": "HeLLo"
           },
           "correct_answer": "c"
         },
         {
-          "id": 26,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_set = {1, 2, 3, 2}\nprint(len(my_set))\n```",
+          "id": 25,
+          "question": "“abcdef” стрингийн сондгой индексийн тэмдэгтүүд аль вэ? (1,3,5)",
           "options": {
-            "a": "4",
-            "b": "3",
-            "c": "5",
-            "d": "Error"
+            "a": "ace",
+            "b": "bdf",
+            "c": "bce",
+            "d": "adf"
+          },
+          "correct_answer": "b"
+        },
+        {
+          "id": 26,
+          "question": "Хоёр стринг тэнцүү эсэхийг шалгах зөв хэлбэр?",
+          "options": {
+            "a": "s1.compare(s2)",
+            "b": "s1 == s2",
+            "c": "equal(s1,s2)",
+            "d": "s1 === s2"
           },
           "correct_answer": "b"
         },
         {
           "id": 27,
-          "question": "Дараах функцийн үр дүн юу вэ?\n```python\ndef greet(name):\n    return 'Hello ' + name\nprint(greet('World'))\n```",
+          "question": "“a b c d” → зайг арилгавал аль вэ?",
           "options": {
-            "a": "Hello name",
-            "b": "World",
-            "c": "Hello World",
-            "d": "Error"
+            "a": "a b c d",
+            "b": "abc d",
+            "c": "abcd",
+            "d": "a bcd"
           },
           "correct_answer": "c"
         },
         {
           "id": 28,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_list = [1, 2, 3]\nmy_list[1] = 5\nprint(my_list)\n```",
+          "question": "“I love python” хэдэн үгтэй вэ?",
           "options": {
-            "a": "[1, 2, 3]",
-            "b": "Error",
-            "c": "[1, 5, 3]",
-            "d": "[5, 2, 3]"
+            "a": "2",
+            "b": "3",
+            "c": "4",
+            "d": "5"
           },
-          "correct_answer": "c"
+          "correct_answer": "b"
         },
         {
           "id": 29,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nnum = 15\nif num % 5 == 0:\n    print('Five')\nelse:\n    print('Other')\n```",
+          "question": "“hi” үгийг 3 удаа давтвал?",
           "options": {
-            "a": "Other",
-            "b": "Five",
-            "c": "Error",
-            "d": "None"
+            "a": "hihihi",
+            "b": "hihi",
+            "c": "hi3",
+            "d": "hi hi hi"
           },
-          "correct_answer": "b"
+          "correct_answer": "a"
         },
         {
           "id": 30,
-          "question": "Дараах loop-ийн нийлбэр (sum) хэд байх вэ?\n```python\ntotal = 0\nfor i in range(1, 4):\n    total += i\nprint(total)\n```",
+          "question": "“level” палиндром мөн үү?",
           "options": {
-            "a": "3",
-            "b": "6",
-            "c": "10",
-            "d": "4"
+            "a": "Тийм",
+            "b": "Үгүй",
+            "c": "Зөвхөн урт нь 6 байвал",
+            "d": "Алдаа гарна"
           },
-          "correct_answer": "b"
+          "correct_answer": "a"
         },
         {
           "id": 31,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nitems = ['a', 'b', 'c']\nfor item in items:\n    if item == 'b':\n        continue\n    print(item, end='')\n```",
+          "question": "“a b c” → бүх space-ийг “-” болговол?",
           "options": {
-            "a": "abc",
-            "b": "ac",
-            "c": "a b c",
-            "d": "a"
+            "a": "a-b-c",
+            "b": "a-b c",
+            "c": "a bc",
+            "d": "abc"
+          },
+          "correct_answer": "a"
+        },
+        {
+          "id": 32,
+          "question": "“I love python” – “python” хэд дэх индекст эхлэх вэ?",
+          "options": {
+            "a": "5",
+            "b": "7",
+            "c": "8",
+            "d": "9"
           },
           "correct_answer": "b"
         },
         {
-          "id": 32,
-          "question": "Дараах функц юу буцаах вэ?\n```python\ndef calculate(a, b=1):\n    return a * b\nprint(calculate(5))\n```",
-          "options": {
-            "a": "Error",
-            "b": "6",
-            "c": "5",
-            "d": "51"
-          },
-          "correct_answer": "c"
-        },
-        {
           "id": 33,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_tuple = (1, 2, 3)\n# my_tuple.append(4)  # Асуулт: Хэрэв энэ мөрийг ажиллуулбал ямар үр дүн гарах вэ?\nprint(len(my_tuple))\n```",
+          "question": "“a b c”.split() ямар үр дүн гаргах вэ?",
           "options": {
-            "a": "4",
-            "b": "3",
-            "c": "Error (TypeError)",
-            "d": "SyntaxError"
+            "a": "[\"a b c\"]",
+            "b": "[\"a\",\"b\",\"c\"]",
+            "c": "[\"a\",\"bc\"]",
+            "d": "error"
           },
-          "correct_answer": "c"
+          "correct_answer": "b"
         },
         {
           "id": 34,
-          "question": "Дараах set-ийн элементүүдийн нийлбэр хэд вэ?\n```python\nmy_set = {10, 20, 10, 30}\nsum_val = sum(my_set)\nprint(sum_val)\n```",
+          "question": "[\"a\",\"b\",\"c\"] → \"a-b-c\" болгохын тулд?",
           "options": {
-            "a": "70",
-            "b": "50",
-            "c": "60",
-            "d": "40"
+            "a": "\"- \".append(list)",
+            "b": "\"- \".connect(list)",
+            "c": "\"- \".join(list)",
+            "d": "list.join(\"-\")"
           },
           "correct_answer": "c"
         },
         {
           "id": 35,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nx = 5\nwhile x > 0:\n    print(x, end='')\n    x -= 2\n```",
+          "question": "“Python” upper ба lower хийвэл?",
           "options": {
-            "a": "54321",
-            "b": "531",
-            "c": "53",
+            "a": "PYTHON / python",
+            "b": "Python / PYTHON",
+            "c": "PythoN / pYTHON",
+            "d": "Алдаа"
+          },
+          "correct_answer": "a"
+        },
+        {
+          "id": 36,
+          "question": "“apple”.startswith(\"a\") → ?",
+          "options": {
+            "a": "False",
+            "b": "True",
+            "c": "“a”",
             "d": "Error"
           },
           "correct_answer": "b"
         },
         {
-          "id": 36,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nlist1 = [1, 2]\nlist2 = [3, 4]\nlist1.extend(list2)\nprint(list1)\n```",
+          "id": 37,
+          "question": "“12345”.isnumeric() → ?",
           "options": {
-            "a": "[1, 2, 3, 4]",
-            "b": "[1, 2, [3, 4]]",
-            "c": "Error",
-            "d": "[4, 3, 2, 1]"
+            "a": "True",
+            "b": "False",
+            "c": "12345",
+            "d": "Error"
           },
           "correct_answer": "a"
         },
         {
-          "id": 37,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\ndef power(a, b):\n    if b == 0:\n        return 1\n    return a * power(a, b-1)\nprint(power(2, 3))\n```",
-          "options": {
-            "a": "6",
-            "b": "8",
-            "c": "1",
-            "d": "2"
-          },
-          "correct_answer": "b"
-        },
-        {
           "id": 38,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nlist_a = [1, 2, 3]\nlist_b = list_a\nlist_a[0] = 99\nprint(list_b[0])\n```",
+          "question": "“  hello  ”.strip() → ?",
           "options": {
-            "a": "1",
-            "b": "99",
-            "c": "Error",
-            "d": "3"
+            "a": "\"hello\"",
+            "b": "\"  hello\"",
+            "c": "\"hello  \"",
+            "d": "\"  hello  \""
           },
-          "correct_answer": "b"
+          "correct_answer": "a"
         },
         {
           "id": 39,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_set = {5, 6}\nmy_set.add(5)\nprint(len(my_set))\n```",
+          "question": "“banana”.count(\"a\") → ?",
           "options": {
-            "a": "3",
+            "a": "1",
             "b": "2",
-            "c": "1",
-            "d": "0"
+            "c": "3",
+            "d": "4"
           },
-          "correct_answer": "b"
+          "correct_answer": "c"
         },
         {
           "id": 40,
-          "question": "Дараах loop хэдэн удаа 'Hello' гэж хэвлэх вэ?\n```python\ncount = 0\nfor i in range(10):\n    if i % 2 == 0:\n        print('Hello')\n        count += 1\nprint(count)\n```\n(Тайлбар: loop-ийн төгсгөлд хэвлэгдсэн 'count' утгыг буцаана)",
+          "question": "“hello world”.title() → ?",
           "options": {
-            "a": "4",
-            "b": "5",
-            "c": "10",
-            "d": "6"
+            "a": "Hello world",
+            "b": "Hello World",
+            "c": "HELLO WORLD",
+            "d": "Hello world!"
           },
           "correct_answer": "b"
         },
         {
           "id": 41,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_list = ['A', 'B', 'C']\nmy_list.remove('B')\nprint(my_list)\n```",
+          "question": "[3, 1, 5, 2] – хамгийн жижиг утга?",
           "options": {
-            "a": "['A', 'C']",
-            "b": "['A', 'B', 'C']",
-            "c": "['A', 'B']",
-            "d": "Error"
+            "a": "1",
+            "b": "2",
+            "c": "3",
+            "d": "5"
           },
           "correct_answer": "a"
         },
         {
           "id": 42,
-          "question": "Дараах функц юу буцаах вэ?\n```python\ndef check_number(num):\n    if num > 10:\n        return 'Big'\n    elif num < 5:\n        return 'Small'\n    else:\n        return 'Medium'\nprint(check_number(7))\n```",
+          "question": "Сүүлийн элементийг устгах зөв арга?",
           "options": {
-            "a": "Small",
-            "b": "Big",
-            "c": "Medium",
-            "d": "Error"
+            "a": "list.delete()",
+            "b": "list.remove()",
+            "c": "list.pop()",
+            "d": "list.end()"
           },
           "correct_answer": "c"
         },
         {
           "id": 43,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nfor i in range(1, 6, 2):\n    print(i, end='')\n```",
+          "question": "[1,2,3,4] – нийлбэр?",
           "options": {
-            "a": "12345",
-            "b": "135",
-            "c": "13",
-            "d": "24"
+            "a": "8",
+            "b": "9",
+            "c": "10",
+            "d": "12"
+          },
+          "correct_answer": "c"
+        },
+        {
+          "id": 44,
+          "question": "[1,1,2,3] → давхардлыг устгавал?",
+          "options": {
+            "a": "[1,1,2,3]",
+            "b": "[1,2,3]",
+            "c": "[2,3]",
+            "d": "[1,3]"
           },
           "correct_answer": "b"
         },
         {
-          "id": 44,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\na = 1\nb = 2\nif a < b and b > 0:\n    print('True')\nelse:\n    print('False')\n```",
-          "options": {
-            "a": "Error",
-            "b": "False",
-            "c": "True",
-            "d": "None"
-          },
-          "correct_answer": "c"
-        },
-        {
           "id": 45,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_tuple = ('x', 'y', 'z')\nprint(my_tuple[-1])\n```",
+          "question": "[1,2] + [3,4] = ?",
           "options": {
-            "a": "x",
-            "b": "y",
-            "c": "z",
-            "d": "Error"
+            "a": "[1,2,3,4]",
+            "b": "[1,2]",
+            "c": "[3,4]",
+            "d": "1234"
           },
-          "correct_answer": "c"
+          "correct_answer": "a"
         },
         {
           "id": 46,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nlist_a = [10, 20, 30, 40]\nprint(list_a[1:3])\n```",
+          "question": "[1,2,3] → урвуу болговол?",
           "options": {
-            "a": "[10, 20]",
-            "b": "[20, 30]",
-            "c": "[20, 30, 40]",
-            "d": "Error"
+            "a": "[1,2,3]",
+            "b": "[3,2,1]",
+            "c": "[2,3,1]",
+            "d": "[1,3,2]"
           },
           "correct_answer": "b"
         },
         {
           "id": 47,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\ndef check_list(data):\n    if 5 in data:\n        return True\n    return False\nprint(check_list([1, 5, 10]))\n```",
+          "question": "[2,4,6,8] дундаж?",
           "options": {
-            "a": "False",
-            "b": "True",
-            "c": "None",
-            "d": "Error"
+            "a": "4",
+            "b": "5",
+            "c": "6",
+            "d": "8"
           },
           "correct_answer": "b"
         },
         {
           "id": 48,
-          "question": "Дараах set-ийн кодны үр дүн юу вэ?\n```python\nset1 = {1, 2, 3}\nset2 = {3, 4, 5}\nprint(set1.union(set2))\n```",
+          "question": "[1,2,3,4,5] — сондгой тоонууд?",
           "options": {
-            "a": "{3}",
-            "b": "{1, 2, 3, 4, 5}",
-            "c": "{1, 2, 4, 5}",
-            "d": "Error"
+            "a": "[2,4]",
+            "b": "[1,3,5]",
+            "c": "[1,5]",
+            "d": "[3,4]"
           },
           "correct_answer": "b"
         },
         {
           "id": 49,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\ndef factorial(n):\n    result = 1\n    for i in range(1, n + 1):\n        result *= i\n    return result\nprint(factorial(4))\n```",
+          "question": "[3,1,4,2] – өсөх эрэмбэ?",
           "options": {
-            "a": "10",
-            "b": "24",
-            "c": "12",
-            "d": "4"
+            "a": "[3,1,4,2]",
+            "b": "[4,3,2,1]",
+            "c": "[1,2,3,4]",
+            "d": "[2,3,1,4]"
           },
-          "correct_answer": "b"
+          "correct_answer": "c"
         },
         {
           "id": 50,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nlist_val = [5, 1, 4]\nlist_val.sort()\nprint(list_val[0])\n```",
+          "question": "[\"01\",\"20\",\"03\",\"abc\"] → 0-оор эхэлсэн элементүүд?",
           "options": {
-            "a": "5",
-            "b": "1",
-            "c": "4",
-            "d": "[1, 4, 5]"
+            "a": "[\"01\",\"03\"]",
+            "b": "[\"20\",\"abc\"]",
+            "c": "[\"abc\"]",
+            "d": "[\"20\",\"03\"]"
           },
-          "correct_answer": "b"
+          "correct_answer": "a"
         },
         {
           "id": 51,
-          "question": "Дараах loop хэдэн удаа 'X' гэж хэвлэх вэ?\n```python\nfor i in range(10):\n    if i == 5:\n        break\n    print('X', end='')\n```\n(Тайлбар: хэвлэсэн 'X'-ийн тоог буцаана)",
+          "question": "{1,2} болон {2,3} нэгдэл?",
           "options": {
-            "a": "4",
-            "b": "5",
-            "c": "10",
-            "d": "6"
+            "a": "{1,2}",
+            "b": "{2,3}",
+            "c": "{1,2,3}",
+            "d": "{2}"
           },
-          "correct_answer": "b"
+          "correct_answer": "c"
         },
         {
           "id": 52,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_set = {10, 20, 30}\nmy_set.discard(20)\nprint(20 in my_set)\n```",
+          "question": "{1,2} болон {2,3} огтлолцол?",
           "options": {
-            "a": "True",
-            "b": "False",
-            "c": "Error",
-            "d": "None"
+            "a": "{1,2,3}",
+            "b": "{2}",
+            "c": "{1,3}",
+            "d": "{}"
           },
           "correct_answer": "b"
         },
         {
           "id": 53,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_list = [10, 20]\nmy_list = my_list + [30, 40]\nprint(len(my_list))\n```",
+          "question": "Ялгаа: {1,2,3} - {2,3} ? (Set difference)",
           "options": {
-            "a": "2",
-            "b": "4",
-            "c": "3",
-            "d": "Error"
+            "a": "{1}",
+            "b": "{2,3}",
+            "c": "{1,2,3}",
+            "d": "{}"
           },
-          "correct_answer": "b"
+          "correct_answer": "a"
         },
         {
           "id": 54,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nnum = 10\nif num > 10:\n    print('A')\nelif num >= 10:\n    print('B')\nelse:\n    print('C')\n```",
+          "question": "Set-д элемент нэмэх зөв арга?",
           "options": {
-            "a": "C",
-            "b": "A",
-            "c": "B",
-            "d": "A B"
+            "a": "add()",
+            "b": "append()",
+            "c": "push()",
+            "d": "insert()"
           },
-          "correct_answer": "c"
+          "correct_answer": "a"
         },
         {
           "id": 55,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\ndef get_info():\n    return 'Name', 25\nname, age = get_info()\nprint(age)\n```",
+          "question": "Set-ээс элемент устгах?",
           "options": {
-            "a": "Name",
-            "b": "('Name', 25)",
-            "c": "25",
-            "d": "Error"
+            "a": "pop()",
+            "b": "delete()",
+            "c": "remove()",
+            "d": "erase()"
           },
           "correct_answer": "c"
         },
         {
           "id": 56,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_tuple = (1, 2, 3)\nprint(my_tuple.index(2))\n```",
+          "question": "(1,5,2,9) хамгийн их утга?",
           "options": {
-            "a": "2",
-            "b": "1",
-            "c": "0",
-            "d": "Error"
+            "a": "1",
+            "b": "2",
+            "c": "5",
+            "d": "9"
           },
-          "correct_answer": "b"
+          "correct_answer": "d"
         },
         {
           "id": 57,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nresult = 0\nfor i in range(5):\n    if i % 2 != 0:\n        result += 1\nprint(result)\n```",
+          "question": "(1,2,3) → list → 5 нэмээд → tuple болговол?",
           "options": {
-            "a": "5",
-            "b": "3",
-            "c": "2",
-            "d": "4"
+            "a": "(1,2,3)",
+            "b": "(1,2,3,5)",
+            "c": "[1,2,3,5]",
+            "d": "(5,1,2,3)"
           },
-          "correct_answer": "c"
+          "correct_answer": "b"
         },
         {
           "id": 58,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\ndef multiply(x, y):\n    return x * y\nprint(multiply(y=2, x=4))\n```",
+          "question": "(10,20,30,40) хэдэн элементтэй вэ?",
           "options": {
-            "a": "6",
+            "a": "3",
             "b": "4",
-            "c": "8",
-            "d": "Error"
+            "c": "5",
+            "d": "40"
           },
-          "correct_answer": "c"
+          "correct_answer": "b"
         },
         {
           "id": 59,
-          "question": "Дараах кодны үр дүн юу вэ?\n```python\nmy_list = [1, 2, 3]\nmy_list.clear()\nprint(len(my_list))\n```",
+          "question": "(1,2,3) – дотор 2 байна уу?",
           "options": {
-            "a": "3",
-            "b": "1",
-            "c": "0",
-            "d": "Error"
+            "a": "Тийм",
+            "b": "Үгүй",
+            "c": "Алдаа",
+            "d": "Зөвхөн list-д болно"
           },
-          "correct_answer": "c"
+          "correct_answer": "a"
         },
         {
           "id": 60,
-          "question": "Дараах set-ийн кодны үр дүн юу вэ?\n```python\nset1 = {1, 2, 3}\nset2 = {3, 4, 5}\nprint(set1.intersection(set2))\n```",
+          "question": "(1,2) + (3,4) = ?",
           "options": {
-            "a": "{1, 2, 3, 4, 5}",
-            "b": "{3}",
-            "c": "{1, 2, 4, 5}",
-            "d": "Error"
+            "a": "(1,2)",
+            "b": "(3,4)",
+            "c": "(1,3,2,4)",
+            "d": "(1,2,3,4)"
           },
-          "correct_answer": "b"
+          "correct_answer": "d"
         }
       ]
     }

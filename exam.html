@@ -2,7 +2,7 @@
 <html lang="mn">
 <head>
     <meta charset="UTF-8">
-    <title>Англи Хэлний Түвшин Тогтоох Шалгалт</title>
+    <title> Түвшин Тогтоох Шалгалт</title>
     <link rel="stylesheet" href="./exam.css">
  
 </head>
@@ -195,19 +195,27 @@ window.onclick = function(event) {
 
 // 4. TAB СОЛИХ ҮЕД ШАЛГАЛТЫГ ШУУД ДУУСГАХ (alert-ийг устгасан)
 // Хуудас дор хаяж нэг удаа идэвхтэй байсан эсэхийг тэмдэглэх хувьсагч.
-let hasBeenActive = false; 
- // Таны шалгалтын төлөвийг илэрхийлэх хувьсагч.
+let isProtectionActive = false; 
+
+// Хуудас ачаалласнаас хойш 3 секундын дараа л хамгаалалтыг идэвхжүүлнэ.
+// Энэ нь анх хуудас руу орох үед шууд "Tab сольсон" гэж андуурахаас сэргийлнэ.
+setTimeout(() => {
+    isProtectionActive = true;
+    console.log("Anti-cheat protection activated."); // Console дээр хянах зорилгоор
+}, 3000); 
 
 document.addEventListener("visibilitychange", function() {
+    // 1. Хэрэв хамгаалалт хараахан идэвхжээгүй бол (эхний 3 секунд дотор) юу ч хийхгүй буцна.
+    if (!isProtectionActive) return;
 
+    // 2. Шалгах нөхцөлүүд:
+    // - document.hidden: Хэрэглэгч цонхыг нуусан/сольсон үед
+    // - !isExamFinished: Шалгалт ДУУСААГҮЙ байхад
+    // - examData !== null: Асуултууд бүрэн ачаалласан үед
     if (document.hidden && !isExamFinished && examData !== null) {
-
         // checkQuiz-ийг дуудахдаа isAutoSubmit=true гэж дамжуулна
-
         checkQuiz(null, true);
-
     }
-
 });
 // Event Listener (checkQuiz-ийг дуудахдаа isAutoSubmit=false гэж дамжуулна)
 submitBtn.addEventListener('click', (e) => checkQuiz(e, false));

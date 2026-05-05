@@ -9,7 +9,7 @@
 <body>
 
 <div class="header">
-    <h1 id="testTitle">Англи Хэлний Түвшин Тогтоох Шалгалт</h1>
+    <h1 id="testTitle">UI/UX Шалгалт</h1>
     <p id="userInfo"></p>
 </div>
 
@@ -49,6 +49,7 @@ if (localStorage.getItem(EXAM_STATUS_KEY) === 'true') {
         .then(response => response.json())
         .then(data => {
             examData = data;
+            console.log(data)
             document.getElementById('testTitle').textContent = examData.test_title;
             loadQuiz();
         })
@@ -66,7 +67,7 @@ function loadQuiz() {
          document.getElementById('userInfo').textContent = `Шалгалт өгч буй: (Нэр, Овог оруулаагүй)`;
     }
 
-    examData.sections.forEach(section => {
+    examData.exam.sections.forEach(section => {
         const sectionDiv = document.createElement('div');
         sectionDiv.className = 'section';
         sectionDiv.innerHTML = `<h2>${section.section_name} (${section.number_of_questions} Асуулт)</h2>`;

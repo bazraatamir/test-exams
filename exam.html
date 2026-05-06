@@ -120,7 +120,7 @@ function checkQuiz(event, isAutoSubmit = false) {
     let unansweredCount = 0;
     const form = document.getElementById('quizForm');
 
-    examData.sections.forEach(section => {
+    examData.exam.sections.forEach(section => {
         section.questions.forEach(q => {
             const questionName = `question_${q.id}`;
             const userAnswerElement = form.querySelector(`input[name="${questionName}"]:checked`);

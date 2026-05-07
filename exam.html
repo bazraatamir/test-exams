@@ -126,7 +126,8 @@ function checkQuiz(event, isAutoSubmit = false) {
             const userAnswerElement = form.querySelector(`input[name="${questionName}"]:checked`);
             
             if (userAnswerElement) {
-                if (userAnswerElement.value === q.correct_answer) {
+                console.log(userAnswerElement)
+                if (userAnswerElement.value === q.answer) {
                     correctCount++;
                 } else {
                     incorrectCount++;
